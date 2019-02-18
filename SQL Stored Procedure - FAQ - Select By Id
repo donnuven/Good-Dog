@@ -1,0 +1,32 @@
+Create Proc [dbo].[Faq_SelectById]
+						@Id INT 
+AS
+
+
+/*
+	DECLARE @Id INT = 36;
+	EXEC [dbo].[Faq_SelectById] @Id;
+
+
+*/
+
+	BEGIN
+	
+			
+		SELECT   [Id]
+		        ,[CategoryId]
+				,[Question]
+				,[Answer]
+				,[SortOrder]
+				,[DateCreated]
+				,[DateModified]
+				,[UserId]
+			FROM [dbo].[Faq] 
+			
+			
+
+			WHERE Id = @Id;
+
+
+
+	END
