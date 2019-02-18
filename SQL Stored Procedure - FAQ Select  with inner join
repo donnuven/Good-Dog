@@ -1,0 +1,37 @@
+Create Proc [dbo].[Faq_SelectByCategoryId]
+									@Id INT 
+AS
+
+
+/*
+	DECLARE @Id INT = 1;
+	EXEC [dbo].[Faq_SelectByCategoryId] @Id;
+
+
+*/
+
+	BEGIN
+	   SELECT 
+	       [Id]
+		  ,[Name]
+        FROM [dbo].[FaqCategories]
+		Where Id = @Id
+			
+		SELECT   a.Id as FaqId
+		        ,[CategoryId]
+				,[Question]
+				,[Answer]
+				,[SortOrder]
+				,[DateCreated]
+				,[DateModified]
+				,[UserId]
+				,b.Name as Category
+			FROM [dbo].[Faq] a INNER JOIN
+			dbo.FaqCategories b ON
+			a.CategoryId = b.Id
+
+			WHERE a.CategoryId = @Id;
+
+
+
+	END
