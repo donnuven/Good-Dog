@@ -1,0 +1,47 @@
+Create Proc [dbo].[Faq_SelectAllByCategory]
+
+AS
+
+/* ---- Test Code
+
+
+
+	EXEC. [dbo].[Faq_SelectAllByCategory]
+
+							
+
+
+
+					*/
+
+
+
+
+	BEGIN
+		
+		SELECT 
+			[Id]
+		   ,[Name]
+
+		 FROM [dbo].[FaqCategories]
+
+
+		 SELECT a.Id as FaqId
+				,[CategoryId]   
+				,[Question]
+				,[Answer]
+				,[SortOrder]
+				,[DateCreated]
+				,[DateModified]
+				,[UserId]
+				,b.Name as Category
+		  FROM [dbo].[Faq] a 
+		  FULL OUTER JOIN [dbo].[FaqCategories] b
+		  ON a.CategoryId = b.Id
+		  ORDER BY CategoryId, SortOrder ASC
+	
+
+
+
+
+	END
