@@ -1,0 +1,23 @@
+Create Proc [dbo].[Faq_Delete]
+						@Id INT
+AS
+	/*
+
+		DECLARE @Id INT = 1
+
+			EXEC. [dbo].[Faq_Delete] @Id;
+
+
+
+	*/
+
+
+	BEGIN
+
+
+				DELETE FROM [dbo].[Faq]
+						WHERE Id=@Id;
+
+
+
+	END
