@@ -1,0 +1,57 @@
+Create Proc [dbo].[Faq_Insert]
+						@Id INT OUT
+					   ,@CategoryId INT
+					   ,@Question nvarchar(128)
+					   ,@Answer nvarchar(500)
+					   ,@SortOrder INT
+					   ,@UserId INT
+
+AS
+  /* -- Test Code
+			DECLARE
+
+					 @Id INT = 13
+					,@CategoryId INT = 2
+					,@Question nvarchar(128) ='How much does it cost to use the app, Good Dog?'
+					,@Answer nvarchar(500) = 'The cost for the app is going to be 2 dollars a month.'
+					,@SortOrder INT =2
+					,@UserId INT = 2
+
+
+			EXEC. [dbo].[Faq_Insert]
+					@Id OUT
+				   ,@CategoryId 
+				   ,@Question
+				   ,@Answer
+				   ,@SortOrder
+				   ,@UserId
+
+				SELECT *
+				FROM 
+				[dbo].[Faq] WHERE Id = @Id
+
+
+
+   */
+
+	BEGIN
+
+		INSERT INTO [dbo].[Faq]
+					([CategoryId]
+					,[Question]
+					,[Answer]
+					,[SortOrder]
+					,[UserId])
+
+
+
+
+			VALUES(@CategoryId
+				  ,@Question
+				  ,@Answer
+				  ,@SortOrder
+				  ,@UserId)
+
+		SET @Id = SCOPE_IDENTITY();
+
+	
