@@ -1,0 +1,63 @@
+Create Proc [dbo].[Faq_Update]
+						@Id INT
+					   ,@CategoryId INT
+					   ,@Question nvarchar(128)
+					   ,@Answer nvarchar(500)
+					   ,@SortOrder INT
+	
+
+AS
+	/* -- Test Code
+		
+		DECLARE 
+
+				@Id INT= 22
+			   ,@CategoryId INT = 4
+			   ,@Question nvarchar(128) ='What are the benefits of partnering up with Good dog?'
+			   ,@Answer nvarchar(500) = 'The benefits of joining is mainly that there will be more opportunities to have more customers showing up later in the future.'
+			   ,@SortOrder INT = 4
+
+
+
+			EXEC. [dbo].[Faq_Update]
+						@Id
+					   ,@CategoryId
+					   ,@Question
+					   ,@Answer
+					   ,@SortOrder
+
+
+			SELECT *
+			FROM [dbo].[Faq]
+			WHERE Id = @Id;
+
+
+
+
+	*/
+
+
+
+
+	BEGIN
+			
+		Declare @dateMod datetime2 = getutcdate();
+			
+				UPDATE [dbo].[Faq]
+				  SET [CategoryId]= @CategoryId
+					 ,[Question]= @Question
+					 ,[Answer]= @Answer
+					 ,[SortOrder]= @SortOrder
+					 ,[DateModified]= @DateMod
+	
+
+					 WHERE Id= @Id;
+
+					 SELECT *
+					 FROM [dbo].[Faq]
+					 WHERE Id = @Id
+
+
+
+
+	END
