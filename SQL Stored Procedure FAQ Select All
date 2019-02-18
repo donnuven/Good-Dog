@@ -1,0 +1,27 @@
+Create Proc [dbo].[Faq_SelectAll]
+
+AS
+
+
+/* --Test Code
+
+	EXEC. [dbo].[Faq_SelectAll]
+
+
+*/
+
+	BEGIN
+
+		SELECT [Id]
+			  ,[CategoryId]
+			  ,[Question]
+			  ,[Answer]
+			  ,[SortOrder]
+			  ,[DateCreated]
+			  ,[DateModified]
+			  ,[UserId]
+			FROM [dbo].[Faq] ORDER BY CategoryId , SortOrder ASC;
+			
+
+
+	END
