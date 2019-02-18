@@ -1,0 +1,46 @@
+Create Proc [dbo].[Faq_Update_Many]
+						@FaqsList as FaqsListType READONLY
+
+AS
+ 
+ /*
+    declare @faqssortorderlist as FaqsListType
+
+		Insert into @faqssortorderlist (id,SortOrder) values(1,1)
+		Insert into @faqssortorderlist (id,SortOrder) values(2,2)
+		Insert into @faqssortorderlist (id,SortOrder) values(3,3)
+		Insert into @faqssortorderlist (id,SortOrder) values(4,4)
+		Insert into @faqssortorderlist (id,SortOrder) values(5,5)
+		Insert into @faqssortorderlist (id,SortOrder) values(6,6)
+		  
+		   EXEC. [dbo].[Faq_Update_Many]@faqssortorderlist
+
+		   SELECT*
+		   FROM Faq
+		   ORDER BY id ASC
+
+
+
+
+ */
+  
+
+
+
+	BEGIN
+
+	  UPDATE f
+	     SET f.SortOrder = fsl.SortOrder
+		 FROM @FaqsList fsl
+			JOIN Faq f ON fsl.id = f.Id
+	   
+	    SELECT *
+		FROM Faq ORDER BY id ASC
+
+
+
+
+
+
+
+	END
